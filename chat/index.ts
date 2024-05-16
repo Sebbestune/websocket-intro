@@ -9,8 +9,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-const room = ["room1", "room2"];
-
 io.on("connection", (socket) => {
   console.log("A user connected");
 
