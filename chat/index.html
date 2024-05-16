@@ -86,6 +86,10 @@
       <form id="usernameform" action="">
         <input id="usernameinput" autocomplete="off" /><button>Set name</button>
       </form>
+
+      <p>Username: <span id="username"></span></p>
+      &nbsp;
+      <p>Chatroom: <span id="room"></span></p>
     </nav>
     <ul id="messages"></ul>
     <form id="form" action="">
@@ -118,15 +122,18 @@
         e.preventDefault();
         if (usernameinput.value) {
           socket.emit("change username", usernameinput.value);
+          document.getElementById("username").textContent = usernameinput.value;
           usernameinput.value = "";
         }
       });
 
       document.getElementById("room1").addEventListener("click", function (e) {
         socket.emit("change room", "room1");
+        document.getElementById("room").textContent = "room1";
       });
       document.getElementById("room2").addEventListener("click", function (e) {
         socket.emit("change room", "room2");
+        document.getElementById("room").textContent = "room2";
       });
     </script>
   </body>
