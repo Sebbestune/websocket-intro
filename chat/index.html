@@ -58,6 +58,8 @@
     </style>
   </head>
   <body>
+    <button id="room1">Room 1</button>
+    <button id="room2">Room 2</button>
     <ul id="messages"></ul>
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
@@ -81,6 +83,13 @@
         item.textContent = msg;
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
+      });
+
+      document.getElementById("room1").addEventListener("click", function (e) {
+        socket.emit("change room", "room1")
+      });
+      document.getElementById("room2").addEventListener("click", function (e) {
+        socket.emit("change room", "room2")
       });
     </script>
   </body>
